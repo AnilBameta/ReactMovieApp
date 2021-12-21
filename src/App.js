@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
     <Switch>
-    <Route path='/' component={Search} />
+    <Route path='/' exact component={Search} />
     <Route path='/Popup/:id' component={Popup} />
     </Switch>
     </Router>
