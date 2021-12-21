@@ -10,10 +10,10 @@ function App() {
   return (
     <Router>
     <Switch>
-    <route path='/' component={Search} />
+    <Route path='/' component={Search} />
     <Route path='/Popup/:id' component={Popup} />
-    <Switch>
-    <Router>
+    </Switch>
+    </Router>
   );
 }
 
