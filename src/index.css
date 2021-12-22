@@ -65,4 +65,32 @@ text-align: center;
   height:400px;
   border-radius: 4px;
 }
+.Popup{
+  display:flex;
+  align-items: center;
+}
+.Popup1{
+  flex:1;
+  padding-right: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+.Popup2{
+  margin-top: -30px;
+  flex:3;
+  text-align: left;
+  margin-right: 20px;
+}
+.PopupImage {
+  width:165px;
+  height:250px;
+  border-radius: 7px;
+  box-shadow: 10px 10px 5px rgb(202, 196, 196);
+}
+.Popup2>p {
+  margin-top: -20px;
+}
+.Popup2>h3 {
+  margin-top: -20px;
+}
 
