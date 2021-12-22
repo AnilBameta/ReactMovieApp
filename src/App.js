@@ -1,6 +1,7 @@
 import './App.css';
 import Search from './Search';
 import Popup from './Popup';
+import Cast from './Cast';
 import {
   BrowserRouter as Router,
   Switch, 
@@ -11,7 +12,8 @@ function App() {
     <Router>
     <Switch>
     <Route path='/' exact component={Search} />
-    <Route path='/Popup/:id' component={Popup} />
+    <Route path='/Popup/:id' exact component={Popup} />
+     <Route path='/Cast/:id' component={Cast} />
     </Switch>
     </Router>
   );
