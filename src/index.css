@@ -93,4 +93,9 @@ text-align: center;
 .Popup2>h3 {
   margin-top: -20px;
 }
-
+.Cast>img {
+  margin-left:50px;
+}
+.Cast{
+  margin-left: 20px;
+}
