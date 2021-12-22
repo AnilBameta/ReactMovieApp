@@ -18,6 +18,20 @@ export default function Popup() {
     },[id])
     console.log(idData);
     return(
-        <h1>{idData?.original_title}</h1>
+        <div className='Popup'>
+            <div className='Popup1'>
+            <img src={"https://image.tmdb.org/t/p/w500"+idData?.poster_path} alt="Not available" className="PopupImage" ></img>
+           </div>
+           <div className='Popup2'>
+           <h1>{idData?.original_title}</h1>
+           <h3>({idData?.release_date})</h3>
+            <br />
+           <h3>Overview</h3>
+           <p>{idData?.overview}</p>
+           <br />
+           <h3>Popularity</h3>
+           <p>{idData?.popularity}</p>
+           </div>
+        </div>
     )
 }
