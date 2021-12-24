@@ -31,11 +31,19 @@ export default function Popup() {
     },[id])
     console.log(caste);
     console.log(idData);
-    const value=caste?.cast?.slice(0,5).map((item) =>   
-                 <Link to={`/Cast/${item.id}`}><h2>{item.character}</h2></Link>
+    
+        
+    const castPeople=caste?.cast?.slice(0, 5).map((item) => 
+    
+     <div>  
+                 <img src={"https://image.tmdb.org/t/p/w500"+item?.profile_path} alt="Not available" className="CastPopupImage" ></img>
+                 <Link to={`/Cast/${item.id}`}><h2>{item.original_name}</h2></Link>    
+     </div>
                )
+              
     return(
-        <div className='Popup'>
+        <>
+        <div className='Popup' style={{background: `url(https://image.tmdb.org/t/p/w500${idData?.backdrop_path})`}}>
             <div className='Popup1'>
             <img src={"https://image.tmdb.org/t/p/w500"+idData?.poster_path} alt="Not available" className="PopupImage" ></img>
            </div>
@@ -48,14 +56,16 @@ export default function Popup() {
            <br />
            <h3>Popularity</h3>
            <p>{idData?.popularity}</p>
-           <div>
-               <h3>Cast</h3>
-               {    
-               <h4>value<h4>
-            }
-             </div>  
-           </div>
-           
+           <br />
+           <h3>Runtime</h3>
+           <p>{idData?.runtime} min.</p>
+           </div>  
         </div>
+        <div>
+        <h3>Cast</h3>
+     <h6 className='CastName'>{castPeople}</h6>
+      </div> 
+      <img src={"https://image.tmdb.org/t/p/w500"+idData?.backdrop_path} alt="Not available" className="PopupImage" ></img>
+      </> 
     )
 }
