@@ -2,6 +2,7 @@ import axios from "axios"
 import React,{ useState,useEffect } from "react"
 import { useParams } from "react-router-dom"
 import './index.css';
+import {Grid} from '@mui/material';
 export default function Cast() {
     const {id}=useParams()
     const [person,setPerson]=useState()
@@ -17,12 +18,18 @@ export default function Cast() {
     },[id])
     console.log(person)
     return(
-        <div className="Cast">
-        <img src={"https://image.tmdb.org/t/p/w500"+person?.profile_path} alt="Not available" className="images" ></img>
-        <h2>Biography</h2>
-        <p>{person?.biography}</p>
-        <h2>Birthday</h2>
-        <p>{person?.birthday}</p>
-        </div>
+        <>
+        <Grid container className="CastPhoto">
+        <Grid item xs={12} md={4} xl={4}  >
+        <img src={"https://image.tmdb.org/t/p/w500"+person?.profile_path} alt="Not available" className="SingleImage" ></img>
+        </Grid>
+        <Grid item xs={12} md={8} xl={8}>
+            <br />
+            <h1>{person?.name}</h1>
+         <h2>Biography</h2>
+         <p>{person?.biography}</p>
+        </Grid>
+        </Grid>
+      </>
     )
 }
