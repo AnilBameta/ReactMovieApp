@@ -68,6 +68,7 @@ text-align: center;
 .Popup{
   display:flex;
   align-items: center;
+  background-color: rgb(244, 248, 248);
 }
 .Popup1{
   flex:1;
@@ -80,10 +81,12 @@ text-align: center;
   flex:3;
   text-align: left;
   margin-right: 20px;
+ 
 }
 .PopupImage {
-  width:165px;
-  height:250px;
+  width:250px;
+  height:380px;
+  margin-bottom: 30px;
   border-radius: 7px;
   box-shadow: 10px 10px 5px rgb(202, 196, 196);
 }
@@ -93,9 +96,24 @@ text-align: center;
 .Popup2>h3 {
   margin-top: -20px;
 }
-.Cast>img {
-  margin-left:50px;
-}
-.Cast{
+.CastName {
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-left: 20px;
+}
+.CastPopupImage {
+  width:120px;
+  height:180px;
+  border-radius: 7px;
+  box-shadow: 10px 10px 5px rgb(202, 196, 196);
+}
+.SingleImage {
+  margin-top: 40px;
+  margin-left:40px;
+  width:240px;
+  height:350px;
+  border-radius: 7px;
+  box-shadow: 10px 10px 5px rgb(202, 196, 196); 
 }
