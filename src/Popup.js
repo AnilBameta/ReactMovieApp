@@ -31,6 +31,9 @@ export default function Popup() {
     },[id])
     console.log(caste);
     console.log(idData);
+    const value=caste?.cast?.slice(0,5).map((item) =>   
+                 <Link to={`/Cast/${item.id}`}><h2>{item.character}</h2></Link>
+               )
     return(
         <div className='Popup'>
             <div className='Popup1'>
@@ -48,9 +51,7 @@ export default function Popup() {
            <div>
                <h3>Cast</h3>
                {    
-               caste?.cast?.map((item) =>   
-                 <Link to={`/Cast/${item.id}`}><h2>{item.character}</h2></Link>
-               )
+               <h4>value<h4>
             }
              </div>  
            </div>
