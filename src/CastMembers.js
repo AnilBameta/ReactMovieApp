@@ -1,8 +1,7 @@
 import React ,{useState,useEffect} from 'react';
 import axios from 'axios';
-import { useParams} from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 import './index.css';
-import {Link} from 'react-router-dom';
 
 export default function Popup() {
     const {id}= useParams();
@@ -36,20 +35,22 @@ export default function Popup() {
     const castPeople=caste?.cast?.slice(0, 5).map((item) => 
     
      <div>  
-                 <img src={"https://image.tmdb.org/t/p/w500"+item?.profile_path} alt="Not available" className="CastPopupImage" ></img>
-                 <Link to={`/Cast/${item.id}`}><h2>{item.original_name}</h2></Link>    
+                 <Link to={`/Cast/${item.id}`} style={{textDecoration:'none'}}><img src={"https://image.tmdb.org/t/p/w500"+item?.profile_path} alt="Not available" className="CastPopupImage" ></img></Link>
+                 <h2 style={{fontSize:'18px'}}>{item.original_name}</h2>
+                 <h2 style={{fontWeight:'300',maxWidth:'150px'}}>{item.character}</h2>    
      </div>
                )
               
     return(
         <>
-        <div className='Popup' style={{background: `url(https://image.tmdb.org/t/p/w500${idData?.backdrop_path})`}}>
+        <div className='Popup' /*</>style={{background: `url(https://image.tmdb.org/t/p/w500${idData?.backdrop_path})`, backgroundSize:'cover'}}*/>
             <div className='Popup1'>
             <img src={"https://image.tmdb.org/t/p/w500"+idData?.poster_path} alt="Not available" className="PopupImage" ></img>
            </div>
            <div className='Popup2'>
            <h1>{idData?.original_title}</h1>
            <h3>({idData?.release_date})</h3>
+           <h2 style={{color:'grey'}}>{idData?.tagline}</h2>
             <br />
            <h3>Overview</h3>
            <p>{idData?.overview}</p>
@@ -65,7 +66,7 @@ export default function Popup() {
         <h3>Cast</h3>
      <h6 className='CastName'>{castPeople}</h6>
       </div> 
-      <img src={"https://image.tmdb.org/t/p/w500"+idData?.backdrop_path} alt="Not available" className="PopupImage" ></img>
+      
       </> 
     )
 }
