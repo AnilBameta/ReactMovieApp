@@ -2,11 +2,11 @@ import React,{ useState, useEffect} from 'react'
 import './index.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-export default function Search() {
-    
+export default function Search({match}) {
+  console.log(match.params.text)
         let [data, setData] = useState();
         let [text,setText]=useState("");
-        let [ans,setAns]=useState("Ocean's Eight");
+        let [ans,setAns]=useState(match.params.text);
         
         function textFun(event) {
           setText(event.target.value)
@@ -25,6 +25,7 @@ export default function Search() {
         });
     },[ans])
     console.log(data)
+
     return (
         <>
         <div className="heading">
