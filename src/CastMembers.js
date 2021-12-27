@@ -2,7 +2,11 @@ import React ,{useState,useEffect} from 'react';
 import axios from 'axios';
 import { useParams, Link} from "react-router-dom";
 import './index.css';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 export default function Popup() {
     const {id}= useParams();
     console.log({id})
@@ -35,9 +39,26 @@ export default function Popup() {
     const castPeople=caste?.cast?.slice(0, 5).map((item) => 
     
      <div>  
-                 <Link to={`/Cast/${item.id}`} style={{textDecoration:'none'}}><img src={"https://image.tmdb.org/t/p/w500"+item?.profile_path} alt="Not available" className="CastPopupImage" ></img></Link>
-                 <h2 style={{fontSize:'18px'}}>{item.original_name}</h2>
-                 <h2 style={{fontWeight:'300',maxWidth:'150px'}}>{item.character}</h2>    
+          <Link to={`/Cast/${item.id}`} style={{textDecoration:'none'}}>
+    <Card sx={{ maxWidth:300, maxHeight:300}}>
+      <CardActionArea >
+        <CardMedia
+          component="img"
+          height="250"
+          image={`https://image.tmdb.org/t/p/w500${item?.profile_path}`}
+          alt="Not Available"
+        />
+        <CardContent >
+          <Typography gutterBottom variant="h8" component="div" width='150px' height='10px'>
+          {item.original_name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" width='150px'>
+          {item.character}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+                </Link> 
      </div>
                )
               
