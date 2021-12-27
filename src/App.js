@@ -1,6 +1,6 @@
 import './App.css';
 import Search from './Search';
-import CastName from './CastName';
+import CastMembers from './CastMembers';
 import Cast from './Cast';
 import Starting from './StartingPage'
 import Navbar from './Navbar';
@@ -17,7 +17,7 @@ function App() {
     <Switch>
     <Route path='/' exact component={Starting} />
     <Route path='/Search/:text' exact component={Search} />
-    <Route path='/CastName/:id' component={CastName} />
+    <Route path='/CastMembers/:id' component={CastMembers} />
     <Route path='/Cast/:id' component={Cast} />
     </Switch>
     </Router>
