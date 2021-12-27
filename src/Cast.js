@@ -6,6 +6,7 @@ import {Grid} from '@mui/material';
 export default function Cast() {
     const {id}=useParams()
     const [person,setPerson]=useState()
+    const [bioInfo,setBioInfo]=useState(person?.biography)
     useEffect(()=> {
        axios.get(`https://api.themoviedb.org/3/person/${id}?api_key=a317e6da10782e752d8c1bdd83ddaff6&language=en-US`)
        .then((response)=>
@@ -16,6 +17,14 @@ export default function Cast() {
            console.log(err)
        })
     },[id])
+    useEffect(()=>{
+        if(person?.biography.localeCompare(''))
+        {
+            setBioInfo("Not Found")
+        }
+    },[person?.biography])
+    
+
     console.log(person)
     return(
         <>
@@ -27,7 +36,9 @@ export default function Cast() {
             <br />
             <h1>{person?.name}</h1>
          <h2>Biography</h2>
-         <p>{person?.biography}</p>
+         <p>{bioInfo}</p>
+         <h2>Birthday</h2>
+         <p>{person?.birthday ?? "Not found"}</p>
         </Grid>
         </Grid>
       </>
