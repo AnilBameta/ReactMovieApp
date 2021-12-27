@@ -17,15 +17,6 @@ export default function Cast() {
            console.log(err)
        })
     },[id])
-    useEffect(()=>{
-        if(person?.biography.localeCompare(''))
-        {
-            setBioInfo("Not Found")
-        }
-    },[person?.biography])
-    
-
-    console.log(person)
     return(
         <>
         <Grid container className="CastPhoto">
@@ -36,7 +27,7 @@ export default function Cast() {
             <br />
             <h1>{person?.name}</h1>
          <h2>Biography</h2>
-         <p>{bioInfo}</p>
+         <p>{person?.biography ?? "Not found}</p>
          <h2>Birthday</h2>
          <p>{person?.birthday ?? "Not found"}</p>
         </Grid>
