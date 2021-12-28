@@ -27,7 +27,7 @@ export default function Cast() {
             <br />
             <h1>{person?.name}</h1>
          <h2>Biography</h2>
-         <p>{person?.biography ?? "Not found}</p>
+         <p>{person?.biography ?? "Not found"}</p>
          <h2>Birthday</h2>
          <p>{person?.birthday ?? "Not found"}</p>
         </Grid>
