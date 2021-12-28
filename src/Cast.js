@@ -6,10 +6,6 @@ import {Grid} from '@mui/material';
 export default function Cast() {
     const {id}=useParams()
     const [person,setPerson]=useState()
-<<<<<<< HEAD
-=======
-    const [bioInfo,setBioInfo]=useState(person?.biography)
->>>>>>> bf95a418a09b8a7eab68abf59ba7521fa3c07910
     useEffect(()=> {
        axios.get(`https://api.themoviedb.org/3/person/${id}?api_key=a317e6da10782e752d8c1bdd83ddaff6&language=en-US`)
        .then((response)=>
@@ -37,8 +33,6 @@ export default function Cast() {
         </Grid>
       </>
     )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> bf95a418a09b8a7eab68abf59ba7521fa3c07910
+
+
