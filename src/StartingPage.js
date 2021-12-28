@@ -21,7 +21,11 @@ export default function Starting() {
     },[])
     console.log(firstData) 
     return (
+<<<<<<< HEAD
         <div className='wholeBody'>
+=======
+        <div className="wholeBody">
+>>>>>>> bf95a418a09b8a7eab68abf59ba7521fa3c07910
         <div className="heading">
         <h1 className="appName">Movies/Tv App</h1>
         <input type ="text" placeholder="Enter the movie name" onChange={textFun} className="textBox"></input>
@@ -41,4 +45,8 @@ export default function Starting() {
         </div>
         </div>
     )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bf95a418a09b8a7eab68abf59ba7521fa3c07910
