@@ -26,7 +26,14 @@ text-align: center;
 }
 .wholeBody {
   background-color: aliceblue;
-  margin-top:-20px;
+  padding-top: 20px;
+}
+.navLogo {
+  color:white;
+  padding-left: 20px;
+  padding-top:20px ;
+  text-decoration: none;
+  font-size: 25px;
 }
 .movies{
   width:160px;

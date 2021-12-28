@@ -3,7 +3,7 @@ import Search from './Search';
 import CastMembers from './CastMembers';
 import Cast from './Cast';
 import Starting from './StartingPage'
-import Navbar from './Navbar';
+import Navbar from './getNavbar';
 import {
   BrowserRouter as Router,
   Switch, 
