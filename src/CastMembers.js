@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-export default function Popup() {
+export default function CastMembers() {
     const {id}= useParams();
     console.log({id})
     let [idData, setIdData] = useState();

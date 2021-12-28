@@ -37,7 +37,7 @@ export default function Search({match}) {
           {
            data?.results?.map((item)=>
              <div className="movies">
-           <Link to={`/Popup/${item.id}`}><img src={"https://image.tmdb.org/t/p/w500"+item.poster_path} alt="Not available" className="images" key={item.id}></img></Link>
+           <Link to={`/CastMembers/${item.id}`}><img src={"https://image.tmdb.org/t/p/w500"+item.poster_path} alt="Not available" className="images" key={item.id}></img></Link>
             <br />
             <div className="titleName">{item.title}</div>
             {item.release_date}
