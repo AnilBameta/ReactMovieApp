@@ -44,12 +44,12 @@ export default function CastMembers() {
       <CardActionArea >
         <CardMedia
           component="img"
-          height="250"
+          height="230"
           image={`https://image.tmdb.org/t/p/w500${item?.profile_path}`}
           alt="Not Available"
         />
         <CardContent >
-          <Typography gutterBottom variant="h8" component="div" width='150px' height='10px'>
+          <Typography gutterBottom variant="h8" component="div" width='160px' height='10px'>
           {item.original_name}
           </Typography>
           <Typography variant="body2" color="text.secondary" width='150px'>
@@ -74,12 +74,15 @@ export default function CastMembers() {
            <h2 style={{color:'grey'}}>{idData?.tagline}</h2>
             <br />
            <h3>Overview</h3>
+           <br />
            <p>{idData?.overview}</p>
            <br />
            <h3>Popularity</h3>
+           <br />
            <p>{idData?.popularity}</p>
            <br />
            <h3>Runtime</h3>
+           <br />
            <p>{idData?.runtime} min.</p>
            </div>  
         </div>

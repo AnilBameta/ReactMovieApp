@@ -1,3 +1,6 @@
+import Navbar from 'react-bootstrap/Navbar';
+import { Container,Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React,{ useState, useEffect} from 'react'
 import './index.css';
 import axios from 'axios';
@@ -22,6 +25,22 @@ export default function Starting() {
     console.log(firstData) 
     return (
         <div className="wholeBody">
+          <Navbar bg="dark" variant="dark">
+    <Container>
+      <Navbar.Brand href="#home">
+        <img
+          alt=""
+          src="/logo.svg"
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />{' '}
+      React Bootstrap
+      </Navbar.Brand>
+      <Link to={`/LogIn`}><Button variant="outline-secondary" style={{width:'90px'}}>Log In</Button>{' '}</Link>
+     <Link to={`/SignUp`}> <Button variant="outline-secondary" style={{justifyContent:'right'}}>Sign Up</Button>{' '}</Link>
+    </Container>
+  </Navbar>
 
         <div className="heading">
         <h1 className="appName">Movies/Tv App</h1>
