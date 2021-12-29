@@ -17,9 +17,24 @@ export default function SignUp() {
     <Form.Label style={{fontSize:'30px'}}><b>Password</b></Form.Label>
     <Form.Control type="password" placeholder="Password" />
   </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
+  <Form.Group className="mb-3" controlId="formBasicCheckbox"> 
   </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label style={{fontSize:'30px'}}><b>MobileNumber</b></Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicCheckbox"> 
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label style={{fontSize:'30px'}}><b>Email</b></Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicCheckbox"> 
+  </Form.Group>
+
+  <Form.Check type="checkbox" label="Check me out" />
   <Button variant="primary" type="submit">
     Submit
   </Button>
