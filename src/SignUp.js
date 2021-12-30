@@ -1,13 +1,8 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap';
 import axios from 'axios'
+
 export default function SignUp() {
-  // const [data,setData] = useState({
-  //  UserName:'',
-  //  Password:'',
-  //  MobileNumber: 0 ,
-  //  Email:''
-  //  });
   const [userName,setUserName]= useState("");
   const [password,setPassword]= useState("");
   const [email,setEmail]= useState("");
@@ -30,16 +25,17 @@ export default function SignUp() {
   const url= 'http://localhost:4000/api/user';
   function funcSubmit () {
    axios.post(url,{
-     UserName: userName, 
-     Password: password, 
-     MobileNumber: mobileNumber,
-     Email: email }
-    )
+     "UserName": userName, 
+     "Password": password, 
+     "MobileNumber": mobileNumber,
+     "Email": email }
+    ).then(res =>{
+      console.log(res)
+      alert("You have successfully Signed Up")
+    }).catch((err)=>{
+      alert("Please enter the right credentials")
+    })
   }
-
-
-
-   
 
 
     return (
@@ -48,35 +44,33 @@ export default function SignUp() {
         <Form className=" formcss">
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label style={{fontSize:'30px'}}><b>Username</b></Form.Label>
-    <Form.Control  placeholder="Enter username" onChange={funcName}/>
-    <Form.Text className="text-muted">
-      We'll never share your details with anyone else.
-    </Form.Text>
+    <Form.Control type='email' placeholder="Enter username" onChange={funcName}/>
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label style={{fontSize:'30px'}}><b>Password</b></Form.Label>
-    <Form.Control type="password" placeholder="Password" onChange={funcPassword}/>
+    <Form.Control type="password" placeholder="Enter Password" onChange={funcPassword}/>
   </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox"> 
-  </Form.Group>
+  <Form.Text className="text-muted">
+      We'll never share your details with anyone else.
+    </Form.Text>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Group className="mb-3" >
     <Form.Label style={{fontSize:'30px'}}><b>MobileNumber</b></Form.Label>
-    <Form.Control  placeholder="Password" onChange={funcMobileNumber}/>
+    <Form.Control  placeholder="MobileNumber" onChange={funcMobileNumber}/>
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicCheckbox"> 
   </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Group className="mb-3" >
     <Form.Label type="email" style={{fontSize:'30px'}}><b>Email</b></Form.Label>
-    <Form.Control  placeholder="Password" onChange={funcEmail}/>
+    <Form.Control  placeholder="Email" onChange={funcEmail}/>
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicCheckbox"> 
   </Form.Group>
 
   <Form.Check type="checkbox" label="Check me out" />
-  <Button variant="primary" type="submit" onClick={funcSubmit}>
+ <Button variant="primary"  onClick={funcSubmit}>
     Submit
   </Button>
 </Form>
