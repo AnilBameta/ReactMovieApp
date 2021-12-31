@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Form,Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 export default function LogIn() {
 const [apiData,getApiData] = useState();
 const [user,setUser] = useState();
@@ -16,9 +17,9 @@ useEffect(()=> {
    })
 },[]);
 console.log(apiData);
-let flag=[];
+
 function Submit() {
- flag = apiData?.data?.map(val=> {
+ let flag = apiData?.data?.filter((val)=> {
    if(val.UserName.localeCompare(user)===0 && val.Password.localeCompare(passwrd)===0)
    {
      return 1;
@@ -29,16 +30,14 @@ function Submit() {
    
  } 
 )
-if(flag.includes(1)) {
-  alert("You have succesfully logged In")
-}
-else {
+console.log(flag)
+if(flag.length===0) {
   alert("Wrong Username or Password")
 }
+else {
+  alert(" You have succesfully logged In")
 }
-  
-
-
+}
 
     return (
   <div className='SignUp'>
