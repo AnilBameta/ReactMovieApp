@@ -1,42 +1,54 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Form,Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Link,useHistory} from 'react-router-dom';
 export default function LogIn() {
-const [apiData,getApiData] = useState();
+const history = useHistory()
 const [user,setUser] = useState();
 const [passwrd,setPasswrd] = useState();
 
 useEffect(()=> {
-   axios.get("http://localhost:4000/api/user")
+   if(localStorage.getItem('user-info'))
+   {
+     history.pushState('/')
+   }
+},[]);
+
+
+function Submit() {
+//  let flag = apiData?.data?.filter((val)=> {
+//    if(val.UserName.localeCompare(user)===0 && val.Password.localeCompare(passwrd)===0)
+//    {
+//      return 1;
+//    }
+//    else {
+//     return 0;
+//    }
+   
+//  } 
+// )
+// console.log(flag)
+// if(flag.length===0) {
+//   alert("Wrong Username or Password")
+// }
+// else {
+//   alert(" You have succesfully logged In")
+// }
+
+
+
+axios.post(("http://localhost:4000/api/user"),
+   {
+    "UserName": user, 
+    "Password": passwrd, 
+   })
    .then(response=> {
-     getApiData(response)
+     localStorage.setItem(response)
    })
    .catch(err=> {
      console.log(err)
    })
-},[]);
-console.log(apiData);
-
-function Submit() {
- let flag = apiData?.data?.filter((val)=> {
-   if(val.UserName.localeCompare(user)===0 && val.Password.localeCompare(passwrd)===0)
-   {
-     return 1;
-   }
-   else {
-    return 0;
-   }
-   
- } 
-)
-console.log(flag)
-if(flag.length===0) {
-  alert("Wrong Username or Password")
-}
-else {
-  alert(" You have succesfully logged In")
-}
+   history.pushState('/')
 }
 
     return (
