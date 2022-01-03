@@ -7,7 +7,7 @@ import SignUp from './SignUp';
 import LogIn from './LogIn';
 import {
   BrowserRouter as Router,
-  Switch, 
+  Routes, 
   Route
 } from 'react-router-dom';
 function App() {
@@ -15,14 +15,14 @@ function App() {
     <>
     
     <Router>
-    <Switch>
-    <Route path='/' exact component={Starting} />
-    <Route path='/SignUp' exact component={SignUp} />
-    <Route path='/LogIn' exact component={LogIn} />
-    <Route path='/Search/:text' exact component={Search} />
-    <Route path='/CastMembers/:id' component={CastMembers} />
-    <Route path='/Cast/:id' component={Cast} />
-    </Switch>
+    <Routes>
+    <Route path='/' exact element={<Starting/>} />
+    <Route path='/SignUp' exact element={<SignUp/>} />
+    <Route path='/LogIn' exact element={<LogIn/>} />
+    <Route path='/Search/:text' exact element={<Search/>} />
+    <Route path='/CastMembers/:id' element={<CastMembers/>} />
+    <Route path='/Cast/:id' element={<Cast/>} />
+    </Routes>
     </Router>
     </>
   );

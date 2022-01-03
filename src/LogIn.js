@@ -1,54 +1,35 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {Form,Button} from 'react-bootstrap';
-import {Link,useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 export default function LogIn() {
-const history = useHistory()
+const navigate = useNavigate();
 const [user,setUser] = useState();
 const [passwrd,setPasswrd] = useState();
 
-useEffect(()=> {
-   if(localStorage.getItem('user-info'))
-   {
-     history.pushState('/')
-   }
-},[]);
+// useEffect(()=> {
+//    if(localStorage.getItem('user-info'))
+//    {
+//      history.pushState('/')
+//    }
+// },[]);
 
 
 function Submit() {
-//  let flag = apiData?.data?.filter((val)=> {
-//    if(val.UserName.localeCompare(user)===0 && val.Password.localeCompare(passwrd)===0)
-//    {
-//      return 1;
-//    }
-//    else {
-//     return 0;
-//    }
-   
-//  } 
-// )
-// console.log(flag)
-// if(flag.length===0) {
-//   alert("Wrong Username or Password")
-// }
-// else {
-//   alert(" You have succesfully logged In")
-// }
 
-
-
-axios.post(("http://localhost:4000/api/user"),
+axios.post(("http://localhost:4000/api/Login"),
    {
     "UserName": user, 
     "Password": passwrd, 
    })
    .then(response=> {
-     localStorage.setItem(response)
+     localStorage.setItem("user",JSON.stringify(response))
+     navigate('/')
    })
    .catch(err=> {
      console.log(err)
    })
-   history.pushState('/')
+  //  history.pushState('/')
 }
 
     return (

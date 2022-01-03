@@ -8,7 +8,7 @@ export default function SignUp() {
   const [email,setEmail]= useState("");
   const [mobileNumber,setMobileNumber]= useState();
 
-  const url= 'http://localhost:4000/api/user';
+  const url= 'http://localhost:4000/api/Sign';
   function funcSubmit () {
    axios.post(url,{
      "UserName": userName, 
@@ -19,7 +19,7 @@ export default function SignUp() {
       console.log(res)
       alert("You have successfully Signed Up")
     }).catch((err)=>{
-      alert("Please enter the right credentials")
+      alert(err)
     })
   }
 
@@ -30,7 +30,7 @@ export default function SignUp() {
         <Form className=" formcss">
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label style={{fontSize:'30px'}}><b>Username</b></Form.Label>
-    <Form.Control type='email' placeholder="Enter username" onChange={(e)=>{setUserName(e.target.value)}}/>
+    <Form.Control type='text' placeholder="Enter username" onChange={(e)=>{setUserName(e.target.value)}}/>
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
