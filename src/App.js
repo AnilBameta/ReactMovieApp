@@ -19,7 +19,7 @@ function App() {
     <Route path='/' exact element={<Starting/>} />
     <Route path='/SignUp' exact element={<SignUp/>} />
     <Route path='/LogIn' exact element={<LogIn/>} />
-    <Route path='/Search/:text' exact element={<Search/>} />
+    <Route path='/Search/:txt' exact element={<Search/>} />
     <Route path='/CastMembers/:id' element={<CastMembers/>} />
     <Route path='/Cast/:id' element={<Cast/>} />
     </Routes>

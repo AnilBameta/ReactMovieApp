@@ -1,18 +1,36 @@
 import React,{ useState, useEffect} from 'react'
 import './index.css';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
-export default function Search({match}) {
-  console.log(match.params.text)
+import {Link,useParams} from 'react-router-dom';
+export default function Search() {
+  const {txt}= useParams();
+  console.log(txt)
         let [data, setData] = useState();
         let [text,setText]=useState("");
-        let [ans,setAns]=useState(match.params.text);
+        let [ans,setAns]=useState(txt);
         
         function textFun(event) {
           setText(event.target.value)
         }
        function btnClick() {
          setAns(text)
+         try{
+          let user=JSON.parse(window.localStorage.getItem('user'));
+          let username = user.data.UserName;
+         axios.post('http://localhost:4000/api/watchlist',
+         {
+           "UserName":username,
+           "Movie":ans
+         })
+         .then(res => {
+           console.log(res)
+         })
+         .catch(err => err)
+        }
+        catch(error)
+        {
+          console.log(error)
+        }
        }      
        useEffect(()=>
     {

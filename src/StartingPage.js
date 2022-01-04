@@ -12,6 +12,28 @@ export default function Starting() {
     function textFun(event) {
       setText(event.target.value)
     }
+    function logOut() {
+      localStorage.clear();
+    }
+    function searchMovie() {
+      try{
+        let user=JSON.parse(window.localStorage.getItem('user'));
+        let username = user.data.UserName;
+       axios.post('http://localhost:4000/api/watchlist',
+       {
+         "UserName":username,
+         "Movie":txt
+       })
+       .then(res => {
+         console.log(res)
+       })
+       .catch(err => err)
+      }
+      catch(error)
+      {
+        console.log(error)
+      }
+    }
     useEffect(()=>
     {
        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=a317e6da10782e752d8c1bdd83ddaff6&language=en-US&page=1`)
@@ -37,6 +59,7 @@ export default function Starting() {
         />{' '}
       React Bootstrap
       </Navbar.Brand>
+      <Button variant="outline-secondary" style={{width:'90px'}} onClick={logOut}>Log Out</Button>{' '}
       <Link to={`/LogIn`}><Button variant="outline-secondary" style={{width:'90px'}}>Log In</Button>{' '}</Link>
      <Link to={`/SignUp`}> <Button variant="outline-secondary" style={{justifyContent:'right'}}>Sign Up</Button>{' '}</Link>
     </Container>
@@ -45,7 +68,7 @@ export default function Starting() {
         <div className="heading">
         <h1 className="appName">Movies/Tv App</h1>
         <input type ="text" placeholder="Enter the movie name" onChange={textFun} className="textBox"></input>
-        <Link to={`/Search/${txt}`}><button className="searchBtn">Search</button></Link>
+        <Link to={`/Search/${txt}`}><button className="searchBtn" onClick={searchMovie}>Search</button></Link>
         </div>    
         <div className="body">
           {

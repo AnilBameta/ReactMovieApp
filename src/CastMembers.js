@@ -11,7 +11,7 @@ export default function CastMembers() {
     const {id}= useParams();
     console.log({id})
     let [idData, setIdData] = useState();
-    let [caste,setCaste]= useState();
+    let [cast,setCaste]= useState();
     useEffect(()=>
     { 
        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a317e6da10782e752d8c1bdd83ddaff6`)
@@ -32,11 +32,11 @@ export default function CastMembers() {
            console.log(err)
        })
     },[id])
-    console.log(caste);
+    console.log(cast);
     console.log(idData);
     
         
-    const castPeople=caste?.cast?.slice(0, 5).map((item) => 
+    const castPeople=cast?.cast?.slice(0, 5).map((item) => 
     
      <div>  
           <Link to={`/Cast/${item.id}`} style={{textDecoration:'none'}}>
