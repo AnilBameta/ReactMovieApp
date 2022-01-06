@@ -8,7 +8,7 @@ export default function SignUp() {
   const [email,setEmail]= useState("");
   const [mobileNumber,setMobileNumber]= useState();
 
-  const url= 'http://localhost:4000/api/Sign';
+  const url= 'https://shrouded-sierra-75095.herokuapp.com/api/Sign';
   function funcSubmit () {
    axios.post(url,{
      "UserName": userName, 

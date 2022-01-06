@@ -7,17 +7,9 @@ const navigate = useNavigate();
 const [user,setUser] = useState();
 const [passwrd,setPasswrd] = useState();
 
-// useEffect(()=> {
-//    if(localStorage.getItem('user-info'))
-//    {
-//      history.pushState('/')
-//    }
-// },[]);
-
-
 function Submit() {
 
-axios.post(("http://localhost:4000/api/Login"),
+axios.post(("https://shrouded-sierra-75095.herokuapp.com/api/Login"),
    {
     "UserName": user, 
     "Password": passwrd, 
@@ -29,7 +21,7 @@ axios.post(("http://localhost:4000/api/Login"),
    .catch(err=> {
      console.log(err)
    })
-  //  history.pushState('/')
+
 }
 
     return (

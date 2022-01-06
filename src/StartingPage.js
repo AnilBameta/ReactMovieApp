@@ -19,7 +19,7 @@ export default function Starting() {
       try{
         let user=JSON.parse(window.localStorage.getItem('user'));
         let username = user.data.UserName;
-       axios.post('http://localhost:4000/api/watchlist',
+       axios.post('https://shrouded-sierra-75095.herokuapp.com/api/watchlist',
        {
          "UserName":username,
          "Movie":txt
