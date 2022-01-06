@@ -50,7 +50,7 @@ export default function Starting() {
         <div className="heading">
         <h1 className="appName">Movies/Tv App</h1>
         <input type ="text" placeholder="Enter the movie name" onChange={textFun} className="textBox"></input>
-        <Link to={`/Search/${txt}`}><button className="searchBtn" onClick={searchMovie}>Search</button></Link>
+        <Link to={`/Search/${txt}`}><button className="searchBtn">Search</button></Link>
         </div>    
         <div className="body">
           {
