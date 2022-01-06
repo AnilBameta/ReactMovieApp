@@ -35,7 +35,7 @@ export default function CastMembers() {
     console.log(cast);
     console.log(idData);
     
-    useEffect(()=> {
+    
       try{
         let user=JSON.parse(window.localStorage.getItem('user'));
         let username = user.data.UserName;
@@ -54,7 +54,7 @@ export default function CastMembers() {
       {
         console.log(error)
       }   
-    },[idData?.original_title])
+   
     
     const castPeople=cast?.cast?.slice(0, 5).map((item) => 
     
