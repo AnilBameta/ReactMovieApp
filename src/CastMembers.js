@@ -35,7 +35,23 @@ export default function CastMembers() {
     console.log(cast);
     console.log(idData);
     
-        
+    try{
+      let user=JSON.parse(window.localStorage.getItem('user'));
+      let username = user.data.UserName;
+     axios.post('https://shrouded-sierra-75095.herokuapp.com/api/watchlist',
+     {
+       "UserName":username,
+       "Movie":idData?.original_title
+     })
+     .then(res => {
+       console.log(res)
+     })
+     .catch(err => err)
+    }
+    catch(error)
+    {
+      console.log(error)
+    }   
     const castPeople=cast?.cast?.slice(0, 5).map((item) => 
     
      <div>  

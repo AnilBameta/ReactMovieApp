@@ -14,23 +14,6 @@ export default function Search() {
         }
        function btnClick() {
          setAns(text)
-         try{
-          let user=JSON.parse(window.localStorage.getItem('user'));
-          let username = user.data.UserName;
-         axios.post('https://shrouded-sierra-75095.herokuapp.com/api/watchlist',
-         {
-           "UserName":username,
-           "Movie":ans
-         })
-         .then(res => {
-           console.log(res)
-         })
-         .catch(err => err)
-        }
-        catch(error)
-        {
-          console.log(error)
-        }
        }      
        useEffect(()=>
     {

@@ -15,25 +15,7 @@ export default function Starting() {
     function logOut() {
       localStorage.clear();
     }
-    function searchMovie() {
-      try{
-        let user=JSON.parse(window.localStorage.getItem('user'));
-        let username = user.data.UserName;
-       axios.post('https://shrouded-sierra-75095.herokuapp.com/api/watchlist',
-       {
-         "UserName":username,
-         "Movie":txt
-       })
-       .then(res => {
-         console.log(res)
-       })
-       .catch(err => err)
-      }
-      catch(error)
-      {
-        console.log(error)
-      }
-    }
+   
     useEffect(()=>
     {
        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=a317e6da10782e752d8c1bdd83ddaff6&language=en-US&page=1`)
