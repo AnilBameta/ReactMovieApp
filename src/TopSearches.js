@@ -10,7 +10,7 @@ export default function TSearches(){
           setData(response.data)
         })
         .catch(err => err)
-    })
+    },[data])
 
 
     console.log(data);

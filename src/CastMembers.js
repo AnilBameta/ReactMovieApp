@@ -28,7 +28,9 @@ export default function CastMembers() {
       .catch((err) => {
         console.log(err)
       })
-      
+      axios.get('https://shrouded-sierra-75095.herokuapp.com/api/watchlist')
+        .then(res => res)
+        .catch(err=> err)
   }, [id])
   
   useEffect(()=> {
@@ -46,9 +48,7 @@ export default function CastMembers() {
         })
         .catch(err => err)
 
-        axios.get('https://shrouded-sierra-75095.herokuapp.com/api/watchlist')
-        .then(res => res)
-        .catch(err=> err)
+
 
     }
     catch (error) {
