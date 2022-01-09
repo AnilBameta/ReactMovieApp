@@ -5,6 +5,7 @@ import Cast from './Cast';
 import Starting from './StartingPage'
 import SignUp from './SignUp';
 import LogIn from './LogIn';
+import TSearches from './TopSearches';
 import {
   BrowserRouter as Router,
   Routes, 
@@ -17,6 +18,7 @@ function App() {
     <Router>
     <Routes>
     <Route path='/' exact element={<Starting/>} />
+    <Route path='/TSearches' element ={<TSearches/>} />
     <Route path='/SignUp' exact element={<SignUp/>} />
     <Route path='/LogIn' exact element={<LogIn/>} />
     <Route path='/Search/:txt' exact element={<Search/>} />

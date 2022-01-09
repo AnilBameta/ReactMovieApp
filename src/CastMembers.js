@@ -11,6 +11,7 @@ export default function CastMembers() {
   const { id } = useParams();
   let [idData, setIdData] = useState();
   let [cast, setCaste] = useState();
+  
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a317e6da10782e752d8c1bdd83ddaff6`)
       .then((response) => {
@@ -27,12 +28,14 @@ export default function CastMembers() {
       .catch((err) => {
         console.log(err)
       })
+      
   }, [id])
-
+  
   useEffect(()=> {
     try {
       let user = JSON.parse(window.localStorage.getItem('user'));
       let username = user.data;
+      console.log(username)
       axios.post('https://shrouded-sierra-75095.herokuapp.com/api/watchlist',
         {
           "UserName": username,
@@ -42,11 +45,18 @@ export default function CastMembers() {
           console.log(res)
         })
         .catch(err => err)
+
+        axios.get('https://shrouded-sierra-75095.herokuapp.com/api/watchlist')
+        .then(res => res)
+        .catch(err=> err)
+
     }
     catch (error) {
       console.log(error)
     }
-  },[id])
+  })
+    
+  
   
 
 

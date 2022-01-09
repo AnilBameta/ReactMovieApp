@@ -41,6 +41,7 @@ export default function Starting() {
         />{' '}
       React Bootstrap
       </Navbar.Brand>
+      <Link to={`/TSearches`}> <Button variant="outline-secondary" style={{width:'90px'}}>Top Searches</Button>{' '}</Link>
       <Button variant="outline-secondary" style={{width:'90px'}} onClick={logOut}>Log Out</Button>{' '}
       <Link to={`/LogIn`}><Button variant="outline-secondary" style={{width:'90px'}}>Log In</Button>{' '}</Link>
      <Link to={`/SignUp`}> <Button variant="outline-secondary" style={{justifyContent:'right'}}>Sign Up</Button>{' '}</Link>
