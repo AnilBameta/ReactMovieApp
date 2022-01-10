@@ -7,10 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+
 export default function CastMembers() {
   const { id } = useParams();
   let [idData, setIdData] = useState();
-  let [cast, setCaste] = useState();
+  let [cast, setCast] = useState();
   
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a317e6da10782e752d8c1bdd83ddaff6`)
@@ -23,7 +24,7 @@ export default function CastMembers() {
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=a317e6da10782e752d8c1bdd83ddaff6&language=en-US`)
       .then((response) => {
-        setCaste(response.data)
+        setCast(response.data)
       })
       .catch((err) => {
         console.log(err)
@@ -48,18 +49,23 @@ export default function CastMembers() {
         })
         .catch(err => err)
 
-
+        for(let i=0;i<idData?.genres.length;i++)
+        {
+        axios.post("https://shrouded-sierra-75095.herokuapp.com/api/genreWise",
+         {
+           "Genre": idData?.genres[i]?.name,
+           "Movie":idData?.original_title
+         }
+       
+        )
+       }
 
     }
     catch (error) {
       console.log(error)
     }
-  })
+  },[idData])
     
-  
-  
-
-
 
 
 
