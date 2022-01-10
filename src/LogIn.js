@@ -9,6 +9,11 @@ const [passwrd,setPasswrd] = useState();
 
 function Submit() {
 
+  if(localStorage.getItem("user") !== null)
+  {
+    alert("You have already Logged in")
+  }
+
 axios.post(("https://shrouded-sierra-75095.herokuapp.com/api/Login"),
    {
     "UserName": user, 
@@ -19,7 +24,7 @@ axios.post(("https://shrouded-sierra-75095.herokuapp.com/api/Login"),
      navigate('/')
    })
    .catch(err=> {
-     console.log(err)
+     console.log("Wrong Credentials")
    })
 
 }
