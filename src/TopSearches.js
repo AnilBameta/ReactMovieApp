@@ -22,6 +22,7 @@ export default function TSearches(){
         .then(res => setGenreData(res.data))
         .catch(err => err)
     },[])
+    console.log(genreData)
 
 
     console.log(genreData);
@@ -38,8 +39,8 @@ export default function TSearches(){
         genreData?.map((item) => 
             <div>
            <h1>{item.Genre}</h1>
-           <h2>{item.Movie}</h2>
-           <h3>{item.count}</h3> 
+           <h2>{item.MostMovie}</h2>
+           <h3>{item.Count}</h3> 
            </div>
         )
         }
