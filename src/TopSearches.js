@@ -27,7 +27,7 @@ export default function TSearches(){
     return(
         <>
         <h1>Most Searched Movie is</h1>
-        <h2>{data[data.length()]?.name}</h2>
+        <h2>{data[data.length]?.name}</h2>
         <button>Get genre wise Count</button>
         <h2>{genreData}</h2>
         </>
