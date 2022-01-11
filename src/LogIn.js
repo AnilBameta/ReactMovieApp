@@ -6,13 +6,11 @@ export default function LogIn() {
 const navigate = useNavigate();
 const [user,setUser] = useState();
 const [passwrd,setPasswrd] = useState();
-
+if(localStorage.getItem("user") !== null)
+{
+  alert("You have already Logged in")
+}
 function Submit() {
-
-  if(localStorage.getItem("user") !== null)
-  {
-    alert("You have already Logged in")
-  }
 
 axios.post(("https://shrouded-sierra-75095.herokuapp.com/api/Login"),
    {
