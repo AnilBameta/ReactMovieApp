@@ -6,9 +6,6 @@ export default function TSearches(){
     const [genreData,setGenreData] =useState()
 
    
-    function btn() {
-     setTxtValue(btnClk)
-    }
 
     useEffect(()=> {
         axios.get('https://shrouded-sierra-75095.herokuapp.com/api/movieCount')
@@ -31,7 +28,7 @@ export default function TSearches(){
         <>
         <h1>Most Searched Movie is</h1>
         <h2>{data[data.length()]?.name}</h2>
-        <button onClick={btn}>Get genre wise Count</button>
+        <button>Get genre wise Count</button>
         <h2>{genreData}</h2>
         </>
     )
