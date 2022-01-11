@@ -2,7 +2,7 @@ import React,{ useEffect,useState} from 'react';
 import axios from 'axios';
 export default function TSearches(){
 
-    const [data,setData] = useState()
+    const [datas,setData] = useState()
     const [genreData,setGenreData] =useState()
 
    
@@ -14,22 +14,35 @@ export default function TSearches(){
         })
         .catch(err => err)
     },[])
-    console.log(data)
-
+    console.log(datas)
+    
+    
     useEffect(()=> {
         axios.get(`https://shrouded-sierra-75095.herokuapp.com/api/genrewiseCount`)
-        .then(res => setGenreData(res))
+        .then(res => setGenreData(res.data))
         .catch(err => err)
-    },[genreData])
+    },[])
 
 
     console.log(genreData);
     return(
         <>
         <h1>Most Searched Movie is</h1>
-        <h2>{data[data.length]?.name}</h2>
+        {
+        
+            <h1>{datas?.Movie}</h1>
+        
+        }
         <button>Get genre wise Count</button>
-        <h2>{genreData}</h2>
+        {
+        genreData?.map((item) => 
+            <div>
+           <h1>{item.Genre}</h1>
+           <h2>{item.Movie}</h2>
+           <h3>{item.count}</h3> 
+           </div>
+        )
+        }
         </>
     )
 }
