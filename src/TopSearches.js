@@ -18,7 +18,7 @@ export default function TSearches(){
     
     
     useEffect(()=> {
-        axios.get(`https://shrouded-sierra-75095.herokuapp.com/api/genrewiseCount`)
+        axios.get(`https://shrouded-sierra-75095.herokuapp.com/api/genreWise`)
         .then(res => setGenreData(res.data))
         .catch(err => err)
     },[])
