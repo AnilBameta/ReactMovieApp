@@ -21,7 +21,7 @@ export default function TSearches(){
         })
         .catch(err => err)
     },[])
-    console.log(genreData)
+    console.log(data)
 
     useEffect(()=> {
         axios.get(`https://shrouded-sierra-75095.herokuapp.com/api/genrewiseCount&query=${txtValue}`)
@@ -30,7 +30,7 @@ export default function TSearches(){
     },[txtValue])
 
 
-    console.log(data);
+    console.log(genreData);
     return(
         <>
         <h1>Most Searched Movie is</h1>
