@@ -36,6 +36,7 @@ export default function CastMembers() {
       let user = JSON.parse(window.localStorage.getItem('user'));
       let username = user.data;
       console.log(username)
+      // axios.post('https://shrouded-sierra-75095.herokuapp.com/api/watchlist',
       axios.post('https://shrouded-sierra-75095.herokuapp.com/api/watchlist',
         {
           "UserName": username,
@@ -50,6 +51,7 @@ export default function CastMembers() {
         {
         axios.post("https://shrouded-sierra-75095.herokuapp.com/api/genreWise",
          {
+          "UserName": username,
            "Genre": idData?.genres[i]?.name,
            "Movie":idData?.original_title
          }
