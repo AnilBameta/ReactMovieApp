@@ -20,7 +20,7 @@ export default function TSearches() {
     function genreValue(e) {
           console.log("My selected genre",e.target.value)
         axios.post(`https://shrouded-sierra-75095.herokuapp.com/api/genreWiseCount`,
-        {"genre":e.target.value}
+        {"Genre":e.target.value}
         )
             .then(res => setGenreData(res.data))
             .catch(err => err)
