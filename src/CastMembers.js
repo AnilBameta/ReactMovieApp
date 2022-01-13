@@ -58,7 +58,7 @@ export default function CastMembers() {
        
         )
        }
-
+       console.log("Mydata",idData)
     }
     catch (error) {
       console.log(error)
