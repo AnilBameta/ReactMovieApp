@@ -39,11 +39,11 @@ export default function TSearches() {
                }
                 
             
-            <button>Get genre wise Count</button>
+            <h1>Get genre wise Count</h1>
             {
                 genreData?.map((item) =>
                     <div>
-                        <h1>{item.Genre}</h1>
+                        <h2>{item.Genre}</h2>
                         <h2>{item.Movie}</h2>
                         <h3>{item.Count}</h3>
                     </div>
