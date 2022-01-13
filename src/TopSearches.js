@@ -19,7 +19,7 @@ export default function TSearches() {
 
     function genreValue(e) {
           console.log("My selected genre",e.target.value)
-        axios.post(`https://shrouded-sierra-75095.herokuapp.com/api/genreWise`,
+        axios.post(`https://shrouded-sierra-75095.herokuapp.com/api/genreWiseCount`,
         {"genre":e.target.value}
         )
             .then(res => setGenreData(res.data))
@@ -37,12 +37,7 @@ export default function TSearches() {
 
 
     console.log("My genre data is",genre)
-    let arr = [];
-    let aditya = [1,2,3,4]
-    genre?.genres?.map((item) =>
-        arr.push(item?.name)
-    )
-  console.log("My array is",arr[0])
+    
   
 
 let valuenext = <div>
@@ -82,7 +77,3 @@ let valuenext = <div>
 }
 
 
-// {aditya.map((item,key) => {
-//     return <option key={key} value={item} />
-//       }
-//   )} 
