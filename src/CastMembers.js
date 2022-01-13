@@ -51,7 +51,7 @@ export default function CastMembers() {
         {
         axios.post("https://shrouded-sierra-75095.herokuapp.com/api/genreWise",
          {
-          "UserName": username,
+          "User": username,
            "Genre": idData?.genres[i]?.name,
            "Movie":idData?.original_title
          }
