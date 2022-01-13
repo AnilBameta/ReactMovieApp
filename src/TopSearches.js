@@ -73,6 +73,7 @@ let valuenext = <div>
            {valuenext}
            </> 
            <h3>{genreData[0]?.Movie}</h3>
+           
            <h3>Count {genreData[0]?.Count}</h3>
         </>
     )
