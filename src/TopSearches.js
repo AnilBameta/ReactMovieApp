@@ -67,11 +67,13 @@ let valuenext = <div>
     return (
         <>
             <h1>Most Searched Movie is</h1>
+            <h2>{datas[0]._id}</h2>
+            <h2>Count {datas[0].count}</h2>
            <>
            {valuenext}
            </> 
-           <h2>{genreData.Movie}</h2>
-           <h2>{genreData.Count}</h2>
+           <h2>{genreData[0]?.Movie}</h2>
+           <h2>Count {genreData[0]?.Count}</h2>
         </>
     )
 }
