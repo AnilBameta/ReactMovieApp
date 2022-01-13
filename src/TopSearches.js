@@ -52,7 +52,7 @@ let valuenext = <div>
         </dataList> */}
 
 
-<label for="genre">Choose a genre:</label>
+<label for="genre"><b>Choose a genre:</b></label>
 
 <select name="genre" id="genre" onChange={genreValue}>
 {genre?.genres?.map((item) => {
@@ -66,14 +66,14 @@ let valuenext = <div>
  
     return (
         <>
-            <h1>Most Searched Movie is</h1>
-            <h2>{datas[0]._id}</h2>
-            <h2>Count {datas[0].count}</h2>
+            <h2>Most Searched Movie is</h2>
+            <h3>{datas[0]?._id}</h3>
+            <h3>Count {datas[0]?.count}</h3>
            <>
            {valuenext}
            </> 
-           <h2>{genreData[0]?.Movie}</h2>
-           <h2>Count {genreData[0]?.Count}</h2>
+           <h3>{genreData[0]?.Movie}</h3>
+           <h3>Count {genreData[0]?.Count}</h3>
         </>
     )
 }
