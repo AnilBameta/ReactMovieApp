@@ -1,82 +1,92 @@
-import React, { useEffect, useState } from 'react';
+import React,{ useEffect, useState} from 'react';
 import axios from 'axios';
-export default function TSearches() {
+export default function TopSearches() {
 
     const [datas, setData] = useState()
-    const [genreData, setGenreData] = useState()
+    const [genreData, setGenreData] = useState(null)
     const [genre, setGenre] = useState()
 
+  
+    useEffect(() => {
+        console.log("I am first useEffect")
+        async function fetchData() {
+       const g= await axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=a317e6da10782e752d8c1bdd83ddaff6&language=en-US");
+           setGenre(g.data)
+           console.log(g.data)
+        }
+        fetchData()
+    },[])
+
+
 
     useEffect(() => {
-        axios.get('https://shrouded-sierra-75095.herokuapp.com/api/mostMovie')
-            .then(response => {
-                setData(response.data)
-            })
-            .catch(err => err)
-    }, [])
-    console.log(datas)
-
-
-    function genreValue(e) {
-          console.log("My selected genre",e.target.value)
-        axios.post(`https://shrouded-sierra-75095.herokuapp.com/api/genreWiseCount`,
-        {"Genre":e.target.value}
-        )
-            .then(res => setGenreData(res.data))
-            .catch(err => err)
-    }
-    console.log(genreData)
-
-    useEffect(() => {
-        axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=a317e6da10782e752d8c1bdd83ddaff6&language=en-US")
-            .then(res => {
-                setGenre(res.data)
-            })
-            .catch(err => err)
-    }, [])
-
-
-    console.log("My genre data is",genre)
+        async function fetchData() {
+      const MM = await axios.get('https://shrouded-sierra-75095.herokuapp.com/api/mostMovie')
+            setData(MM.data[0])
+        }
+        fetchData();
+    },[])
     
+
+useEffect(()=> {
+    console.log("I am user")
+    async function GV(){
+        const ret= await  axios.post(`https://shrouded-sierra-75095.herokuapp.com/api/genreWiseCount`,
+            {"Genre":'Action'}
+            )
+               
+                setGenreData(ret.data[0])
+         }
+         GV()
+},[])
+console.log("I am Top Search")
+    
+   function genreValue(e) {
+     
+         async function GV(){
+    const ret= await  axios.post(`https://shrouded-sierra-75095.herokuapp.com/api/genreWiseCount`,
+        {"Genre":e.target.value||'Adventure'}
+        )
+            console.log("My return data is",ret)
+            setGenreData(ret.data)
+     }
+     GV()
+    }
+ 
+
+
+   
+
   
 
 let valuenext = <div>
-    {/* <label >Choose your Genre from the list:</label>
-        <input list="genre" onChange={genreValue}/>
-        <dataList id="genre" >  
-        {genre?.genres?.map((item) => 
-        <option value={item?.name}  />
-      
   
-  )} 
-        </dataList> */}
-
-
-<label for="genre"><b>Choose a genre:</b></label>
+<label for="genre">Choose a genre:</label>
 
 <select name="genre" id="genre" onChange={genreValue}>
 {genre?.genres?.map((item) => {
-    return <option value={item?.name}>{item?.name}</option>
+    return <option value={item?.name} >{item?.name}</option>
       }
   )} 
 </select>
 </div>
     
-   
- 
+
+
     return (
         <>
-            <h2>Most Searched Movie is</h2>
-            <h3>{datas[0]?._id}</h3>
-            <h3>Count {datas[0]?.count}</h3>
-           <>
-           {valuenext}
-           </> 
-           <h3>{genreData[0]?.Movie}</h3>
-           
-           <h3>Count {genreData[0]?.Count}</h3>
+            <h1>Most Searched Movie is</h1>  
+            <h2>{datas?._id}</h2> 
+            <h2>{datas?.count}</h2>
+            {valuenext}
+            <h2>{genreData?.Movie}</h2>
+            <h2>{genreData?.Count}</h2>
         </>
     )
 }
 
 
+// {aditya.map((item,key) => {
+//     return <option key={key} value={item} />
+//       }
+//   )} 
