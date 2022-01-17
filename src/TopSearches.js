@@ -45,7 +45,7 @@ console.log("I am Top Search")
      
          async function GV(){
     const ret= await  axios.post(`https://shrouded-sierra-75095.herokuapp.com/api/genreWiseCount`,
-        {"Genre":e.target.value||'Adventure'}
+        {"Genre":e.target.value}
         )
             console.log("My return data is",ret)
             setGenreData(ret.data)
@@ -86,7 +86,3 @@ let valuenext = <div>
 }
 
 
-// {aditya.map((item,key) => {
-//     return <option key={key} value={item} />
-//       }
-//   )} 
